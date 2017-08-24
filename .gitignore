@@ -1,0 +1,17 @@
+Debug/*
+Release/*
+*/Debug/*
+*/Release/*
+ipch/*
+x64/*
+*.dll
+*.exe
+*.obj
+*.log
+*.lib
+*.a
+*.so
+*.sdf
+*.opensdf
+.vs/*
+*/x64/*
