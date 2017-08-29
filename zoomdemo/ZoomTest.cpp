@@ -124,8 +124,12 @@ bool ZoomTest::APIUserStart()
 	strUserId = L"GWCkySQfQ9mTdc03O5YCRA";
 	strUserToken = L"Nexej8R5LheGX6CLq7m2wyXGqaKKMihQK8tyZnatKXA.BgMYY1M1WFdHVm94eFYxYjNaQ2FKK1JQdz09QDQ4YTc1NWI5MTUwNzc1NjgxZjAwNDA5NDkwMmYyYWQ0ODJjMWUzOTkxOGQxNzc0NGRkMzhmN2QwMWNiZGQxOTUADDNDQkF1b2lZUzNzPQ";
 	strUserName = L"testdev";
-	if (strMeetingNumber.length() <= 0 || strUserId.length() <= 0 || strUserToken.length() <= 0 || strUserName.length() <= 0)
+	if (strMeetingNumber.length() <= 0 || strUserId.length() <= 0 || strUserToken.length() <= 0 || strUserName.length() <= 0) {
+		std::string outstr = "lenghth < 0 \n";
+		OutputDebugStringA(outstr.c_str());
 		return false;
+	}
+		
 
 	ZOOM_SDK_NAMESPACE::StartParam startParam;
 	startParam.userType = ZOOM_SDK_NAMESPACE::SDK_UT_APIUSER;
@@ -137,6 +141,8 @@ bool ZoomTest::APIUserStart()
 	apiuserParam.userName = strUserName.c_str();
 
 	if (!m_pMeetingServiceMgr->Init()) {
+		std::string outstr = "Meeting Service Manager Init Failed! \n";
+		OutputDebugStringA(outstr.c_str());
 		return false;
 	}
 

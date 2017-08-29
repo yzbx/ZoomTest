@@ -334,7 +334,13 @@ namespace zoomdemo {
 		}*/
 
 		zoomtest->showMessage(zoomtest->SDKAuth(), "SDK auth");
+		MessageBox::Show(_T("进入会议!"), _T("进入会议"));
 		zoomtest->showMessage(zoomtest->APIUserStart(), "APIUserStart");
+		
+		System::String^ username = this->textBox1->Text;
+		System::String^ password = this->textBox2->Text;
+		//Console::WriteLine("username is "+username);
+		//Console::WriteLine("password is " + password);
 	}
 };
 }
