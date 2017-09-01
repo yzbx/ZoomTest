@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{32AD77C6-979B-4A54-9482-17FA4F32E9DA}</ProjectGuid>
+    <ProjectGuid>{D737915D-5626-4047-B48C-FC5BDB296B8F}</ProjectGuid>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
-    <RootNamespace>zoomdemo</RootNamespace>
+    <RootNamespace>$safeprojectname$</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -74,29 +74,36 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\tmp\coding\MFCApplication2\zoomdemo\h;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)libzoom\h;$(IncludePath)</IncludePath>
+    <OutDir>.\bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>.\bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\tmp\coding\zoomdemo\zoomdemo\h;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\tmp\coding\zoomdemo\zoomdemo\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)libzoom\h;$(IncludePath)</IncludePath>
+    <OutDir>.\bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>.\bin</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(ProjectDir)libzoom\h;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <EntryPointSymbol>main</EntryPointSymbol>
-      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sdk.lib;winhttp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(ProjectDir)libzoom\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -104,8 +111,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies />
     </Link>
   </ItemDefinitionGroup>
@@ -113,19 +122,24 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(ProjectDir)libzoom\h;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
-      <EntryPointSymbol>main</EntryPointSymbol>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winhttp.lib;sdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(ProjectDir)libzoom\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies />
     </Link>
   </ItemDefinitionGroup>
@@ -137,42 +151,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="authservicemgr.h" />
+    <ClInclude Include="MeetingServiceMgr.h" />
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyForm1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PreMeetingServiceMgr.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="WinHttp001.h" />
+    <ClInclude Include="WinJson.h" />
+    <ClInclude Include="ZoomApi.h" />
+    <ClInclude Include="ZoomTest.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="authservicemgr.cpp" />
     <ClCompile Include="MeetingServiceMgr.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="MyForm1.cpp" />
     <ClCompile Include="PreMeetingServiceMgr.cpp" />
+    <ClCompile Include="WinHttp001.cpp" />
+    <ClCompile Include="WinJson.cpp" />
     <ClCompile Include="ZoomApi.cpp" />
+    <ClCompile Include="zoomdemo001.cpp" />
     <ClCompile Include="ZoomTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="authservicemgr.h" />
-    <ClInclude Include="h\auth_service_interface.h" />
-    <ClInclude Include="h\calender_service_interface.h" />
-    <ClInclude Include="h\embedded_browser_interface.h" />
-    <ClInclude Include="h\meeting_h323_helper_interface.h" />
-    <ClInclude Include="h\meeting_phone_helper_interface.h" />
-    <ClInclude Include="h\meeting_service_interface.h" />
-    <ClInclude Include="h\network_connection_handler_interface.h" />
-    <ClInclude Include="h\premeeting_service_interface.h" />
-    <ClInclude Include="h\setting_service_interface.h" />
-    <ClInclude Include="h\zoom_sdk.h" />
-    <ClInclude Include="h\zoom_sdk_def.h" />
-    <ClInclude Include="h\zoom_sdk_ext.h" />
-    <ClInclude Include="MeetingServiceMgr.h" />
-    <ClInclude Include="MyForm.h">
-      <FileType>CppHeader</FileType>
-    </ClInclude>
-    <ClInclude Include="PreMeetingServiceMgr.h" />
-    <ClInclude Include="ZoomApi.h" />
-    <ClInclude Include="ZoomTest.h" />
+    <Image Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="lib\sdk.lib" />
+    <EmbeddedResource Include="MyForm1.resx">
+      <DependentUpon>MyForm1.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

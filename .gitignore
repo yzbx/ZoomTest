@@ -15,3 +15,7 @@ x64/*
 *.opensdf
 .vs/*
 */x64/*
+*.zip
+*/bin/*
+*.pdb
+bin/*

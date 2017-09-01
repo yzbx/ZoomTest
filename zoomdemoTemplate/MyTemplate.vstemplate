@@ -1,0 +1,43 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>zoomdemoTemplate</Name>
+    <Description>zoomdemo001 backup</Description>
+    <ProjectType>VC</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>zoomdemoTemplate</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="zoomdemo001.vcxproj" File="zoomdemo001.vcxproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="false" TargetFileName="$projectname$.vcxproj.filters">zoomdemo001.vcxproj.filters</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="zoomdemo001.cpp">zoomdemo001.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="MyForm.cpp">MyForm.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="authservicemgr.cpp">authservicemgr.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="MeetingServiceMgr.cpp">MeetingServiceMgr.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="PreMeetingServiceMgr.cpp">PreMeetingServiceMgr.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="ZoomApi.cpp">ZoomApi.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="ZoomTest.cpp">ZoomTest.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="WinHttp001.cpp">WinHttp001.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="WinJson.cpp">WinJson.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="resource.h">resource.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="MyForm.h">MyForm.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="MyForm.resx">MyForm.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="authservicemgr.h">authservicemgr.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="MeetingServiceMgr.h">MeetingServiceMgr.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="PreMeetingServiceMgr.h">PreMeetingServiceMgr.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="ZoomApi.h">ZoomApi.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="ZoomTest.h">ZoomTest.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="WinHttp001.h">WinHttp001.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="WinJson.h">WinJson.h</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="app.rc">app.rc</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="app.ico">app.ico</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="ReadMe.txt">ReadMe.txt</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
