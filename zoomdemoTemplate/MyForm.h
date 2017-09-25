@@ -2,6 +2,7 @@
 #include "ZoomTest.h"
 #include "WinHttp001.h"
 #include "WinJson.h"
+#include <qrencode.h>
 namespace zoomdemo001 {
 
 	using namespace System;

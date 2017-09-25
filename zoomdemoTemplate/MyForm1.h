@@ -1,7 +1,8 @@
 #pragma once
-
+#include "CppQREncoder.h"
+#include <string>
+#include <iostream>
 namespace zoomdemo001 {
-
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -79,6 +80,40 @@ namespace zoomdemo001 {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->form->Hide();
+		std::string std_str = "hello";
+		const char *string = std_str.c_str();
+		int version = 1;
+		QRecLevel level = QR_ECLEVEL_L;
+		QRencodeMode hint = QR_MODE_8;
+		int casesensitive = 1;
+		//QRcode * qrcode=QRcode_encodeString8bit(string, version, level);
+		QRcode* qrcode = QRcode_encodeString(string, version, level, hint, casesensitive);
+		if (qrcode == NULL){
+			std::cout << "qrcode is null" << std::endl;
+		}
+		else{
+			enum imageType image_type = PNG_TYPE;
+			CppQREncoder *CppQr = new CppQREncoder();
+			const char *outfile = "hello.png";
+			std::cout << "outifle is " << outfile << std::endl;
+			CppQr->writePNG(qrcode, outfile, image_type);
+
+			if (CppQr != NULL){
+				delete CppQr;
+			}
+
+			if (outfile != NULL){
+				delete outfile;
+			}
+		}
+
+		if (string != NULL){
+			delete string;
+		}
+		if (qrcode != NULL){
+			delete qrcode;
+		}
+		
 	}
 	};
 }

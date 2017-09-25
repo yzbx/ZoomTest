@@ -45,6 +45,9 @@
     <ClInclude Include="MyForm1.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CppQREncoder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -82,6 +85,9 @@
     <ClCompile Include="MyForm1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CppQREncoder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
@@ -95,5 +101,8 @@
     <EmbeddedResource Include="MyForm1.resx">
       <Filter>资源文件</Filter>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
